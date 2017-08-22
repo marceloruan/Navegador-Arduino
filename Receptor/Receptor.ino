@@ -5,6 +5,8 @@
 RF24 radio(7, 8);
 
 const byte rxAddr[6] = "00001";
+unsigned long startTime;
+unsigned long elapsedTime;
 
 void setup()
 {
@@ -19,11 +21,13 @@ void setup()
 
 void loop()
 {
+  startTime = millis();
   if (radio.available())
   {
     char text[32] = {0};
     radio.read(&text, sizeof(text));
-    
+    elapsedTime = millis() - startTime;
     Serial.println(text);
+    Serial.println(elapsedTime);
   }
 }
