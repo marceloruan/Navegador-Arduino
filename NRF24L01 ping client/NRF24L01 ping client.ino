@@ -12,7 +12,7 @@
 
 
 unsigned int amostras = 40;
-unsigned int count = 1;
+unsigned int count;
 unsigned long total = 0;
 unsigned long media = 0;
 
